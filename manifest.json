@@ -1,6 +1,6 @@
 {
-  "name": "My Onsen UI PWA",
-  "short_name": "Onsen PWA",
+  "name": "GIS Tirta Sanjiwani",
+  "short_name": "GIS TS",
   "start_url": "https://pudamts.com//gis/",
   "display": "standalone",
   "theme_color": "#fff",
