@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <title>MyGIS -  Perumda Air Minum Tirta Sanjiwani</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <link rel="apple-touch-icon" sizes="192x192" href="/gis/img/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="/gis/img/icon-512x512.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="manifest" href="/gis/manifest.json">  
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/gis/sw.js')
+        .then(registration => {
+          console.log("Service Worker Registered");
+          if(registration.active) {
+            registration.addEventListener('updatefound', () => {
+              console.log('Update found. Waiting for install to complete.');
+              const installingWorker = registration.installing;
+              installingWorker.addEventListener('statechange', () => {
+                if(installingWorker.state === 'installed') {
+                  console.log('Install complete. Triggering update prompt.');
+                  onUpdateFound();
+                }
+              });
+            });
+          }
+        })
+        .catch(e => console.log(e));
+    }
+    function onUpdateFound() {
+      ons.notification.confirm('A new update is ready. Do you want to update now?')
+        .then(buttonIndex => {
+          if(buttonIndex === 1) {
+            location.reload();
+          }
+        });
+    }
+  </script>
+</head>
+<body>
+
+  <ons-splitter>
+    <ons-splitter-side id="menu" collapse width="220px">
+      <ons-page>
+        <ons-list>
+          <ons-list-item onclick="loadPage('about.html')">
+            About
+          </ons-list-item>
+        </ons-list>
+      </ons-page>
+    </ons-splitter-side>  
+    <ons-splitter-content>
+      <ons-navigator id="navigator" page="login.html"></ons-navigator>
+    </ons-splitter-content>
+  </ons-splitter>
+<script src="/gis/js/db.js"></script>
+</body>
+</html>

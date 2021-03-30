@@ -1,0 +1,26 @@
+{
+  "name": "My Onsen UI PWA",
+  "short_name": "Onsen PWA",
+  "start_url": "https://pudamts.com//gis/",
+  "display": "standalone",
+  "theme_color": "#fff",
+  "background_color": "#fff",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.google.samples.apps.iosched"
+    }
+  ],
+  "icons": [{
+    "src": "/gis/img/icon-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png",
+    "purpose": "any"
+  },{
+    "src": "/gis/img/icon-512x512.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "maskable"
+  }]
+}

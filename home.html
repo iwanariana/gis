@@ -1,0 +1,27 @@
+<ons-page id="home">
+  
+    <script>
+      const openMenu = () => {
+        document.querySelector('#menu').open();
+      };
+    </script>
+
+  
+    <ons-toolbar id="home-toolbar">
+      <div class="center">Gis Tirta Sanjiwani</div>
+  
+      <div class="left">
+        <ons-toolbar-button onclick="openMenu()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+    </ons-toolbar>
+
+
+    
+    <ons-tabbar id="tabbar">
+      <ons-tab page="pelanggan.html" label="Pelanggan"></ons-tab>
+      <ons-tab page="accesories.html" label="Aksesoris"></ons-tab>
+      <ons-tab page="sumber.html" label="Sumber"></ons-tab>
+    </ons-tabbar>
+  </ons-page>
